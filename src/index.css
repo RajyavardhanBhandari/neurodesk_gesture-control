@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Space Grotesk", sans-serif;
+  color: #d1eef8;
+  background-color: #04111d;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.tech-shell {
+  background:
+    radial-gradient(circle at 12% 16%, rgba(14, 165, 233, 0.2), transparent 30%),
+    radial-gradient(circle at 88% 10%, rgba(20, 184, 166, 0.18), transparent 28%),
+    repeating-linear-gradient(105deg, rgba(148, 163, 184, 0.06) 0 1px, transparent 1px 26px),
+    linear-gradient(132deg, #02050d 0%, #052132 46%, #04211f 100%);
+  animation: breathe 14s ease-in-out infinite;
+}
+
+.tech-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(transparent 0%, rgba(56, 189, 248, 0.08) 48%, transparent 100%);
+  mix-blend-mode: screen;
+  animation: screenSweep 9s linear infinite;
+  z-index: 0;
+}
+
+.tech-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 90%);
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 50%;
+  }
+  50% {
+    background-position: 6% 7%, 93% 4%, 50% 50%;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(860%);
+    opacity: 0;
+  }
+}
+
+@keyframes screenSweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
